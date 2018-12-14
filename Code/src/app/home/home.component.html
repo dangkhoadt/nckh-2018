@@ -1,0 +1,85 @@
+<!--HEADER-->
+<div *ngIf="isHandling" class="black-mask">
+    <div class="spinner">
+        <p class="text-white ml-3"><i class="fas fa-spinner w3-spin" style="font-size:64px"></i></p>
+        <p class="text-white font-weight-bold">ĐANG XỬ LÝ...</p>
+    </div>
+  </div>
+  
+
+    <!--/HEADER-->
+    
+    <!--FILE-->
+    <div class="img-box w-100 d-flex align-items-center justify-content-center">
+        <img src="./assets/file.png" alt="">
+    
+      <label for="upload-photo">
+          <p>Chọn file</p>
+    
+      </label>
+    
+      <input type="file" name="photo" id="upload-photo" style="display: none;" (change)="onChangeImage($event)">
+    </div>  
+    <!--/FILE-->
+    
+    <!--CONTENT-->
+      
+      <div class="container content">
+          <div *ngIf="isError" class="alert alert-danger" role="alert">
+            Đã có sự cố xảy ra trong quá trình xử lý. Nguyên nhân có thể là do Server hiện tại
+            chưa cung cấp đủ cấu hình để xử lý ảnh của bạn. <a class="alert-link" routerLink="/helps">Đến đây để biết rõ hơn</a>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-12 left-image">
+                <div class="box">
+                  <div class="img-box-tool">
+                    <img id="image" src="https://scontent.fsgn5-3.fna.fbcdn.net/v/t1.15752-9/46503793_435088990359908_3232919169003421696_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn5-3.fna&oh=babd6ae26e10f7b7f11d134eccfbc764&oe=5C68C6A8">
+                  </div>
+                  <div class="image-box-text">
+                      <p>Trước: {{i_Width}}x{{i_Height}}</p>
+                  </div>
+              </div>
+            </div>
+            <div class="middle-tool col-lg-2 col-md-2 mb-3">
+              <p style="width: 96px" class="position-absolute" (click)="uploadImage()" title="Nhấn vào nút này để xử lý">Xử Lý</p>
+              <p *ngIf="PImage" (click)="onHandleCheck()" data-toggle="modal" data-target=".modal-check" style="width: 96px" class="position-absolute my-5 text-center" title="Nhấn vào nút này để so sánh"><i class="far fa-eye"></i></p>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-12 right-image">
+              <div class="box">
+                  <div class="download_box">
+                    <img id="pImage" src="https://scontent.fsgn5-3.fna.fbcdn.net/v/t1.15752-9/46503793_435088990359908_3232919169003421696_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn5-3.fna&oh=babd6ae26e10f7b7f11d134eccfbc764&oe=5C68C6A8" alt="Avatar" class="image" style="width:100%">
+                    <div class="middle">
+                      <img (click)="downloadImage()" id="download" src="./assets/download-to-storage-drive.svg" alt="">
+                    </div>
+                  </div>
+                  <div class="image-box-text">
+                      <p>Sau: {{pi_Width}}x{{pi_Height}}</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <!--/CONTENT-->
+    
+    <!--MODAL-->
+    <div class="modal fade modal-check" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">So sánh kết quả</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+              <p class="font-weight-bold">{{checkTitle}}</p>
+              <img class="imgCheck" id="imageCheck" src="https://scontent.fsgn5-3.fna.fbcdn.net/v/t1.15752-9/46503793_435088990359908_3232919169003421696_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn5-3.fna&oh=babd6ae26e10f7b7f11d134eccfbc764&oe=5C68C6A8">
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button (click)="onHandleNext()" type="button" class="btn btn-primary" *ngIf="curCheck">Next <i class="fas fa-arrow-right"></i></button>
+              <button (click)="onHandleNext()" type="button" class="btn btn-danger" *ngIf="!curCheck"><i class="fas fa-arrow-left"></i> Previous</button>
+          </div>
+        </div>
+      </div>
+    </div>

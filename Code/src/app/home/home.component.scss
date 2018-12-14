@@ -1,0 +1,157 @@
+
+.img-box{
+    height:223px;
+}
+.img-box label:hover{
+    cursor: pointer;
+}
+.img-box label{
+    position: absolute;
+    color:white;
+    margin-top:10px;
+}
+.img-box label:hover{
+    color:rgb(175, 174, 174);
+}
+
+.img-box-tool>#image{
+    width:100%;
+    height:200px;
+}
+.img-box-tool #download{
+    border:1px solid black;
+    width:32px;
+}
+.middle{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+.img-box-tool{
+    width:320px;
+    height:200px;
+}
+.image-box-text p{
+    font-size:14px;
+    text-align:center;
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+.image-box-text{
+    background:#003460;
+    color:white;
+    margin-top:15px;
+    width:320px;
+}
+.middle-tool{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.middle-tool img{
+    width:96px;
+    padding-top:15px;
+    padding-bottom: 15px;
+}
+.col-lg-5{
+    display:flex;
+    align-items: center;
+}
+
+.left-image{
+    justify-content: flex-end;
+}
+@media screen and (max-width: 992px) {
+    .middle-tool{
+        padding-top: 15px;
+        padding-bottom:60px;
+    }
+    .left-image{
+        justify-content: center!important;
+    }
+    .right-image{
+        justify-content: center!important;
+    }
+}
+
+
+.content{
+    margin-bottom:60px;
+    padding-bottom: 60px;
+}
+
+.download_box {
+    position: relative;
+    width:320px;
+    height:200px;
+    background:black;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .3s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.download_box #pImage{
+    width: 100%;
+    height:200px;
+}
+
+.download_box:hover .image {
+  opacity: 0.3;
+}
+
+.download_box:hover .middle {
+  opacity: 1;
+  cursor: pointer;
+}
+#download{
+    width:32px;
+}
+.middle-tool img:hover{
+    cursor: pointer;
+}
+.position-absolute{
+    background:#005CA8;
+    color:white;
+    padding:5px 25px;
+    transition: all 0.3s;
+}
+.position-absolute:hover{
+    cursor: pointer;
+    color:#005CA8;
+    border:1px solid #005CA8;
+    background:#fff;
+}
+.black-mask{
+    position: absolute;
+    width:100%;
+    height:100%;
+    background: #00000086;
+    z-index: 99;
+}
+.spinner{
+    position: absolute;
+    top:23%;
+    left:48%;
+    transform: translateY(50%,50%);
+}
